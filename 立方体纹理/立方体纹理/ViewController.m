@@ -140,4 +140,19 @@ static const NSInteger kCoordCount = 36;
     [self.baseEffect prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, kCoordCount);
 }
+
+- (void)dealloc {
+    if (EAGLContext.currentContext == self.glkView.context) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    if (_vertexes) {
+        free(_vertexes);
+        _vertexes = nil;
+    }
+    if (_vertexBuffer) {
+        glDeleteBuffers(1, &_vertexBuffer);
+        _vertexBuffer = 0;
+    }
+    [self.displayLink invalidate];
+}
 @end
