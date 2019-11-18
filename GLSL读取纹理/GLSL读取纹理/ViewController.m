@@ -9,14 +9,12 @@
 #import "ViewController.h"
 #import "QLView.h"
 @interface ViewController ()
-@property (nonatomic, strong) QLView *qlView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.qlView = (QLView *)self.view;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
