@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA4953DA2383838B00FA744B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953D92383838B00FA744B /* AppDelegate.m */; };
+		EA4953DD2383838B00FA744B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953DC2383838B00FA744B /* ViewController.m */; };
+		EA4953E02383838B00FA744B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4953DE2383838B00FA744B /* Main.storyboard */; };
+		EA4953E22383838D00FA744B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4953E12383838D00FA744B /* Assets.xcassets */; };
+		EA4953E52383838D00FA744B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4953E32383838D00FA744B /* LaunchScreen.storyboard */; };
+		EA4953E82383838D00FA744B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953E72383838D00FA744B /* main.m */; };
+		EA4953F22383854B00FA744B /* QLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953EE2383854B00FA744B /* QLView.m */; };
+		EA4953F32383854B00FA744B /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EA4953EF2383854B00FA744B /* shaderv.vsh */; };
+		EA4953F42383854B00FA744B /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EA4953F02383854B00FA744B /* shaderf.fsh */; };
+		EA4953FC23838F0700FA744B /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953F623838F0700FA744B /* GLESUtils.m */; };
+		EA4953FD23838F0700FA744B /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = EA4953F823838F0700FA744B /* GLESMath.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA4953D52383838B00FA744B /* GLSL三角形变换.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GLSL三角形变换.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4953D82383838B00FA744B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EA4953D92383838B00FA744B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EA4953DB2383838B00FA744B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EA4953DC2383838B00FA744B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EA4953DF2383838B00FA744B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EA4953E12383838D00FA744B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA4953E42383838D00FA744B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EA4953E62383838D00FA744B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA4953E72383838D00FA744B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EA4953EE2383854B00FA744B /* QLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLView.m; path = "../../GLSL读取纹理/GLSL读取纹理/QLView.m"; sourceTree = "<group>"; };
+		EA4953EF2383854B00FA744B /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderv.vsh; path = "../../GLSL读取纹理/GLSL读取纹理/shaderv.vsh"; sourceTree = "<group>"; };
+		EA4953F02383854B00FA744B /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderf.fsh; path = "../../GLSL读取纹理/GLSL读取纹理/shaderf.fsh"; sourceTree = "<group>"; };
+		EA4953F12383854B00FA744B /* QLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLView.h; path = "../../GLSL读取纹理/GLSL读取纹理/QLView.h"; sourceTree = "<group>"; };
+		EA4953F623838F0700FA744B /* GLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESUtils.m; sourceTree = "<group>"; };
+		EA4953F723838F0700FA744B /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		EA4953F823838F0700FA744B /* GLESMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESMath.c; sourceTree = "<group>"; };
+		EA4953F923838F0700FA744B /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
+		EA4953FA23838F0700FA744B /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		EA4953FB23838F0700FA744B /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA4953D22383838B00FA744B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA4953CC2383838B00FA744B = {
+			isa = PBXGroup;
+			children = (
+				EA4953D72383838B00FA744B /* GLSL三角形变换 */,
+				EA4953D62383838B00FA744B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA4953D62383838B00FA744B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA4953D52383838B00FA744B /* GLSL三角形变换.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA4953D72383838B00FA744B /* GLSL三角形变换 */ = {
+			isa = PBXGroup;
+			children = (
+				EA4953F523838F0700FA744B /* Utils */,
+				EA4953D82383838B00FA744B /* AppDelegate.h */,
+				EA4953D92383838B00FA744B /* AppDelegate.m */,
+				EA4953DB2383838B00FA744B /* ViewController.h */,
+				EA4953DC2383838B00FA744B /* ViewController.m */,
+				EA4953F12383854B00FA744B /* QLView.h */,
+				EA4953EE2383854B00FA744B /* QLView.m */,
+				EA4953F02383854B00FA744B /* shaderf.fsh */,
+				EA4953EF2383854B00FA744B /* shaderv.vsh */,
+				EA4953DE2383838B00FA744B /* Main.storyboard */,
+				EA4953E12383838D00FA744B /* Assets.xcassets */,
+				EA4953E32383838D00FA744B /* LaunchScreen.storyboard */,
+				EA4953E62383838D00FA744B /* Info.plist */,
+				EA4953E72383838D00FA744B /* main.m */,
+			);
+			path = "GLSL三角形变换";
+			sourceTree = "<group>";
+		};
+		EA4953F523838F0700FA744B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA4953F623838F0700FA744B /* GLESUtils.m */,
+				EA4953F723838F0700FA744B /* Quaternion.h */,
+				EA4953F823838F0700FA744B /* GLESMath.c */,
+				EA4953F923838F0700FA744B /* GLESUtils.h */,
+				EA4953FA23838F0700FA744B /* Vector.h */,
+				EA4953FB23838F0700FA744B /* GLESMath.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA4953D42383838B00FA744B /* GLSL三角形变换 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA4953EB2383838D00FA744B /* Build configuration list for PBXNativeTarget "GLSL三角形变换" */;
+			buildPhases = (
+				EA4953D12383838B00FA744B /* Sources */,
+				EA4953D22383838B00FA744B /* Frameworks */,
+				EA4953D32383838B00FA744B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GLSL三角形变换";
+			productName = "GLSL三角形变换";
+			productReference = EA4953D52383838B00FA744B /* GLSL三角形变换.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA4953CD2383838B00FA744B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = zonasse.bupt;
+				TargetAttributes = {
+					EA4953D42383838B00FA744B = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = EA4953D02383838B00FA744B /* Build configuration list for PBXProject "GLSL三角形变换" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA4953CC2383838B00FA744B;
+			productRefGroup = EA4953D62383838B00FA744B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA4953D42383838B00FA744B /* GLSL三角形变换 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA4953D32383838B00FA744B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4953F42383854B00FA744B /* shaderf.fsh in Resources */,
+				EA4953E52383838D00FA744B /* LaunchScreen.storyboard in Resources */,
+				EA4953E22383838D00FA744B /* Assets.xcassets in Resources */,
+				EA4953E02383838B00FA744B /* Main.storyboard in Resources */,
+				EA4953F32383854B00FA744B /* shaderv.vsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA4953D12383838B00FA744B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4953DD2383838B00FA744B /* ViewController.m in Sources */,
+				EA4953E82383838D00FA744B /* main.m in Sources */,
+				EA4953FC23838F0700FA744B /* GLESUtils.m in Sources */,
+				EA4953DA2383838B00FA744B /* AppDelegate.m in Sources */,
+				EA4953FD23838F0700FA744B /* GLESMath.c in Sources */,
+				EA4953F22383854B00FA744B /* QLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EA4953DE2383838B00FA744B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4953DF2383838B00FA744B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EA4953E32383838D00FA744B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4953E42383838D00FA744B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EA4953E92383838D00FA744B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EA4953EA2383838D00FA744B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA4953EC2383838D00FA744B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 558BYD3F79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLSL三角形变换/Utils";
+				INFOPLIST_FILE = "GLSL三角形变换/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zonasse.bupt.GLSL-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA4953ED2383838D00FA744B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 558BYD3F79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLSL三角形变换/Utils";
+				INFOPLIST_FILE = "GLSL三角形变换/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zonasse.bupt.GLSL-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA4953D02383838B00FA744B /* Build configuration list for PBXProject "GLSL三角形变换" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4953E92383838D00FA744B /* Debug */,
+				EA4953EA2383838D00FA744B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA4953EB2383838D00FA744B /* Build configuration list for PBXNativeTarget "GLSL三角形变换" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4953EC2383838D00FA744B /* Debug */,
+				EA4953ED2383838D00FA744B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA4953CD2383838B00FA744B /* Project object */;
+}
