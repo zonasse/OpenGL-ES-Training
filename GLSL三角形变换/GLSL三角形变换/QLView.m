@@ -8,15 +8,70 @@
 
 #import "QLView.h"
 #import <GLKit/GLKit.h>
+#import "GLESMath.h"
+#import "GLESUtils.h"
 @interface QLView()
 @property (nonatomic, strong) CAEAGLLayer *eaglLayer;
 @property (nonatomic, strong) EAGLContext *eaglContext;
 @property (nonatomic, assign) GLuint      frameBuffer;
 @property (nonatomic, assign) GLuint      renderBuffer;
 @property (nonatomic, assign) GLuint      program;
+@property (nonatomic, assign) GLuint      verticesBuffer;
 @end
 
 @implementation QLView
+{
+    float xDegree;
+    float yDegree;
+    float zDegree;
+    BOOL bX;
+    BOOL bY;
+    BOOL bZ;
+    NSTimer *timer;
+}
+
+
+#pragma mark - XYClick
+- (IBAction)XClick:(id)sender {
+    
+    //开启定时器
+    if (!timer) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(reDegree) userInfo:nil repeats:YES];
+    }
+    //更新的是X还是Y
+    bX = !bX;
+    
+}
+- (IBAction)YClick:(id)sender {
+    
+    //开启定时器
+    if (!timer) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(reDegree) userInfo:nil repeats:YES];
+    }
+    //更新的是X还是Y
+    bY = !bY;
+}
+- (IBAction)ZClick:(id)sender {
+    
+    //开启定时器
+    if (!timer) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(reDegree) userInfo:nil repeats:YES];
+    }
+    //更新的是X还是Y
+    bZ = !bZ;
+}
+
+-(void)reDegree
+{
+    //如果停止X轴旋转，X = 0则度数就停留在暂停前的度数.
+    //更新度数
+    xDegree += bX * 5;
+    yDegree += bY * 5;
+    zDegree += bZ * 5;
+    //重新渲染
+    [self renderLayer];
+    
+}
 
 - (void)layoutSubviews {
     [self setupLayer];
@@ -30,6 +85,7 @@
 - (void)setupLayer {
     self.eaglLayer = (CAEAGLLayer *)self.layer;
     [self setContentScaleFactor:[UIScreen mainScreen].scale];
+    self.eaglLayer.opaque = YES;
     self.eaglLayer.drawableProperties = @{
                                           kEAGLDrawablePropertyRetainedBacking : @(NO),
                                           kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
@@ -80,7 +136,10 @@
     
     NSString *vertexFilePath = [[NSBundle mainBundle] pathForResource:@"shaderv" ofType:@"vsh"];
     NSString *fragmentFilePath = [[NSBundle mainBundle] pathForResource:@"shaderf" ofType:@"fsh"];
-    
+    if (self.program) {
+        glDeleteProgram(self.program);
+        self.program = 0;
+    }
     self.program = [self loadShaderFromVertexFile:vertexFilePath andFragmentFile:fragmentFilePath];
     
     glLinkProgram(self.program);
@@ -94,46 +153,77 @@
         return;
     }
     glUseProgram(self.program);
-    
+    // 顶点数组 前3顶点值（x,y,z），后3位颜色值(RGB)
     GLfloat attrArr[] =
     {
-        0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
-        -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
-        -0.5f, -0.5f, -1.0f,    0.0f, 0.0f,
+        -0.5f, 0.5f, 0.0f,      1.0f, 0.0f, 1.0f, //左上0
+        0.5f, 0.5f, 0.0f,       1.0f, 0.0f, 1.0f, //右上1
+        -0.5f, -0.5f, 0.0f,     1.0f, 1.0f, 1.0f, //左下2
         
-        0.5f, 0.5f, -1.0f,      1.0f, 1.0f,
-        -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
-        0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
+        0.5f, -0.5f, 0.0f,      1.0f, 1.0f, 1.0f, //右下3
+        0.0f, 0.0f, 1.0f,       0.0f, 1.0f, 0.0f, //顶点4
+    };
+    // 索引数组
+    GLuint indices[] =
+    {
+        0, 3, 2,
+        0, 1, 3,
+        0, 2, 4,
+        0, 4, 1,
+        2, 3, 4,
+        1, 4, 3,
     };
     // 处理顶点数据
-    GLuint attrBuffer;
-    glGenBuffers(1, &attrBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+    if (_verticesBuffer == 0) {
+        glGenBuffers(1, &_verticesBuffer);
+    }
+    glBindBuffer(GL_ARRAY_BUFFER, _verticesBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     
     GLuint position = glGetAttribLocation(self.program, "position");
     glEnableVertexAttribArray(position);
     
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, NULL);
     
-    GLuint textureCoord = glGetAttribLocation(self.program, "textureCoord");
-    glEnableVertexAttribArray(textureCoord);
-    glVertexAttribPointer(textureCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (GLfloat *)NULL + 3);
+    GLuint positionColor = glGetAttribLocation(self.program, "positionColor");
+    glEnableVertexAttribArray(positionColor);
+    glVertexAttribPointer(positionColor, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (GLfloat *)NULL + 3);
     
-    [self setupTexture];
+    GLuint projectionMatrixSlot = glGetUniformLocation(self.program, "projectionMatrix");
+    GLuint modelViewMatrixSlot = glGetUniformLocation(self.program, "modelViewMatrix");
     
-    glUniform1i(glGetUniformLocation(self.program, "colorMap"), 0);
+    float width = self.frame.size.width;
+    float height = self.frame.size.height;
     
-    //解决纹理翻转(方法1)
-    //    [self rotateTextureImage];
+    float aspect = width / height;
+    KSMatrix4 projectionMatrix;
+    ksMatrixLoadIdentity(&projectionMatrix);
+    ksPerspective(&projectionMatrix, 20.0, aspect, 5.0, 20.0);
+    glUniformMatrix4fv(projectionMatrixSlot, 1, GL_FALSE, (GLfloat *)&projectionMatrix.m[0][0]);
     
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    KSMatrix4 modelViewMatrix;
+    ksMatrixLoadIdentity(&modelViewMatrix);
+    ksTranslate(&modelViewMatrix, 0, 0, -10);
+    
+    KSMatrix4 rotateMatrix;
+    ksMatrixLoadIdentity(&rotateMatrix);
+    ksRotate(&rotateMatrix, xDegree, 1.0, 0, 0);
+    ksRotate(&rotateMatrix, yDegree, 0, 1.0, 0);
+    ksRotate(&rotateMatrix, zDegree, 0, 0, 1.0);
+
+    ksMatrixMultiply(&modelViewMatrix, &rotateMatrix, &modelViewMatrix);
+    glUniformMatrix4fv(modelViewMatrixSlot, 1, GL_FALSE, (GLfloat *)&modelViewMatrix.m[0][0]);
+    
+    glEnable(GL_CULL_FACE);
+    
+    glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_INT, indices);
     
     [self.eaglContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 /**
  加载着色器文件
+
  @param vertFilePath 顶点着色器文件
  @param fragmentFilePath 片元着色器文件
  @return 着色器program
@@ -161,86 +251,11 @@
     glCompileShader(*shader);
 }
 
-- (void)setupTexture {
-    CGImageRef spriteImage = [UIImage imageNamed:@"notebook"].CGImage;
-    
-    size_t width = CGImageGetWidth(spriteImage);
-    size_t height = CGImageGetHeight(spriteImage);
-    
-    GLubyte *spriteData = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
-    
-    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
-    
-    CGRect rect = CGRectMake(0, 0, width, height);
-    
-    CGContextDrawImage(spriteContext, rect, spriteImage);
-    // 纹理翻转 方法2
-    //    CGContextTranslateCTM(spriteContext, 0, rect.size.height);
-    //    CGContextScaleCTM(spriteContext, 1.0, -1.0);
-    //    CGContextDrawImage(spriteContext, rect, spriteImage);
-    
-    // 纹理翻转 方法3
-    
-    //    CGContextTranslateCTM(spriteContext, rect.origin.x, rect.origin.y);
-    //    CGContextTranslateCTM(spriteContext, 0, rect.size.height);
-    //    CGContextScaleCTM(spriteContext, 1.0, -1.0);
-    //    CGContextTranslateCTM(spriteContext, -rect.origin.x, -rect.origin.y);
-    //    CGContextDrawImage(spriteContext, rect, spriteImage);
-    
-    CGContextRelease(spriteContext);
-    
-    glBindTexture(GL_TEXTURE_2D, 0);
-    
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (float)width, (float)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
-    
-    free(spriteData);
-}
-
 + (Class)layerClass {
     return [CAEAGLLayer class];
 }
 
 
--(void)rotateTextureImage
-{
-    //注意，想要获取shader里面的变量，这里记得要在glLinkProgram后面，后面，后面！
-    //1. rotate等于shaderv.vsh中的uniform属性，rotateMatrix
-    GLuint rotate = glGetUniformLocation(self.program, "rotateMatrix");
-    
-    //2.获取渲旋转的弧度
-    float radians = 180 * 3.14159f / 180.0f;
-    
-    //3.求得弧度对于的sin\cos值
-    float s = sin(radians);
-    float c = cos(radians);
-    
-    //4.因为在3D课程中用的是横向量，在OpenGL ES用的是列向量
-    /*
-     参考Z轴旋转矩阵
-     */
-    GLfloat zRotation[16] = {
-        c,-s,0,0,
-        s,c,0,0,
-        0,0,1,0,
-        0,0,0,1
-    };
-    
-    //5.设置旋转矩阵
-    /*
-     glUniformMatrix4fv (GLint location, GLsizei count, GLboolean transpose, const GLfloat* value)
-     location : 对于shader 中的ID
-     count : 个数
-     transpose : 转置
-     value : 指针
-     */
-    glUniformMatrix4fv(rotate, 1, GL_FALSE, zRotation);
-    
-    
-}
+
 
 @end

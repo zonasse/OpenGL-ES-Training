@@ -13,11 +13,13 @@
 		EA4953E22383838D00FA744B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4953E12383838D00FA744B /* Assets.xcassets */; };
 		EA4953E52383838D00FA744B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4953E32383838D00FA744B /* LaunchScreen.storyboard */; };
 		EA4953E82383838D00FA744B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953E72383838D00FA744B /* main.m */; };
-		EA4953F22383854B00FA744B /* QLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953EE2383854B00FA744B /* QLView.m */; };
-		EA4953F32383854B00FA744B /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EA4953EF2383854B00FA744B /* shaderv.vsh */; };
-		EA4953F42383854B00FA744B /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EA4953F02383854B00FA744B /* shaderf.fsh */; };
 		EA4953FC23838F0700FA744B /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4953F623838F0700FA744B /* GLESUtils.m */; };
 		EA4953FD23838F0700FA744B /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = EA4953F823838F0700FA744B /* GLESMath.c */; };
+		EAC501EB238BBD3900D38F12 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EAC501E8238BBD3900D38F12 /* shaderf.fsh */; };
+		EAC501EC238BBD3900D38F12 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EAC501E9238BBD3900D38F12 /* shaderv.vsh */; };
+		EAC501F2238BBD7800D38F12 /* QLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC501EE238BBD7800D38F12 /* QLView.m */; };
+		EAC501F3238BBD7800D38F12 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EAC501EF238BBD7800D38F12 /* shaderf.fsh */; };
+		EAC501F4238BBD7800D38F12 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EAC501F0238BBD7800D38F12 /* shaderv.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,16 +33,19 @@
 		EA4953E42383838D00FA744B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA4953E62383838D00FA744B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4953E72383838D00FA744B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EA4953EE2383854B00FA744B /* QLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLView.m; path = "../../GLSL读取纹理/GLSL读取纹理/QLView.m"; sourceTree = "<group>"; };
-		EA4953EF2383854B00FA744B /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderv.vsh; path = "../../GLSL读取纹理/GLSL读取纹理/shaderv.vsh"; sourceTree = "<group>"; };
-		EA4953F02383854B00FA744B /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderf.fsh; path = "../../GLSL读取纹理/GLSL读取纹理/shaderf.fsh"; sourceTree = "<group>"; };
-		EA4953F12383854B00FA744B /* QLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLView.h; path = "../../GLSL读取纹理/GLSL读取纹理/QLView.h"; sourceTree = "<group>"; };
 		EA4953F623838F0700FA744B /* GLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESUtils.m; sourceTree = "<group>"; };
 		EA4953F723838F0700FA744B /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
 		EA4953F823838F0700FA744B /* GLESMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESMath.c; sourceTree = "<group>"; };
 		EA4953F923838F0700FA744B /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
 		EA4953FA23838F0700FA744B /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		EA4953FB23838F0700FA744B /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
+		EAC501E8238BBD3900D38F12 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderf.fsh; path = "../../../GLSL读取纹理/GLSL读取纹理/shaderf.fsh"; sourceTree = "<group>"; };
+		EAC501E9238BBD3900D38F12 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shaderv.vsh; path = "../../../GLSL读取纹理/GLSL读取纹理/shaderv.vsh"; sourceTree = "<group>"; };
+		EAC501EA238BBD3900D38F12 /* QLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLView.m; path = "../../../GLSL读取纹理/GLSL读取纹理/QLView.m"; sourceTree = "<group>"; };
+		EAC501EE238BBD7800D38F12 /* QLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLView.m; sourceTree = "<group>"; };
+		EAC501EF238BBD7800D38F12 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
+		EAC501F0238BBD7800D38F12 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		EAC501F1238BBD7800D38F12 /* QLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +83,10 @@
 				EA4953D92383838B00FA744B /* AppDelegate.m */,
 				EA4953DB2383838B00FA744B /* ViewController.h */,
 				EA4953DC2383838B00FA744B /* ViewController.m */,
-				EA4953F12383854B00FA744B /* QLView.h */,
-				EA4953EE2383854B00FA744B /* QLView.m */,
-				EA4953F02383854B00FA744B /* shaderf.fsh */,
-				EA4953EF2383854B00FA744B /* shaderv.vsh */,
+				EAC501F1238BBD7800D38F12 /* QLView.h */,
+				EAC501EE238BBD7800D38F12 /* QLView.m */,
+				EAC501EF238BBD7800D38F12 /* shaderf.fsh */,
+				EAC501F0238BBD7800D38F12 /* shaderv.vsh */,
 				EA4953DE2383838B00FA744B /* Main.storyboard */,
 				EA4953E12383838D00FA744B /* Assets.xcassets */,
 				EA4953E32383838D00FA744B /* LaunchScreen.storyboard */,
@@ -94,6 +99,9 @@
 		EA4953F523838F0700FA744B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAC501EA238BBD3900D38F12 /* QLView.m */,
+				EAC501E8238BBD3900D38F12 /* shaderf.fsh */,
+				EAC501E9238BBD3900D38F12 /* shaderv.vsh */,
 				EA4953F623838F0700FA744B /* GLESUtils.m */,
 				EA4953F723838F0700FA744B /* Quaternion.h */,
 				EA4953F823838F0700FA744B /* GLESMath.c */,
@@ -161,11 +169,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA4953F42383854B00FA744B /* shaderf.fsh in Resources */,
 				EA4953E52383838D00FA744B /* LaunchScreen.storyboard in Resources */,
 				EA4953E22383838D00FA744B /* Assets.xcassets in Resources */,
+				EAC501EC238BBD3900D38F12 /* shaderv.vsh in Resources */,
+				EAC501F4238BBD7800D38F12 /* shaderv.vsh in Resources */,
+				EAC501F3238BBD7800D38F12 /* shaderf.fsh in Resources */,
+				EAC501EB238BBD3900D38F12 /* shaderf.fsh in Resources */,
 				EA4953E02383838B00FA744B /* Main.storyboard in Resources */,
-				EA4953F32383854B00FA744B /* shaderv.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +191,7 @@
 				EA4953FC23838F0700FA744B /* GLESUtils.m in Sources */,
 				EA4953DA2383838B00FA744B /* AppDelegate.m in Sources */,
 				EA4953FD23838F0700FA744B /* GLESMath.c in Sources */,
-				EA4953F22383854B00FA744B /* QLView.m in Sources */,
+				EAC501F2238BBD7800D38F12 /* QLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
