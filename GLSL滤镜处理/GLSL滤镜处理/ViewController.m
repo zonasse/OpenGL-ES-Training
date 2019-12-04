@@ -49,7 +49,8 @@ typedef struct {
     self.filterBar = [[FilterBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - filterBarHeight, self.view.bounds.size.width, filterBarHeight)];
     [self.view addSubview:self.filterBar];
     self.filterBar.delegate = self;
-    NSArray *dataSource = @[@"原始",@"2分屏",@"3分屏",@"4分屏",@"6分屏"];
+    NSArray *dataSource = @[@"原始",@"2分屏",@"3分屏",@"4分屏",@"6分屏",@"灰度",@"颠倒",@"旋涡",@"马赛克",@"马赛克2",@"缩放",@"灵魂出窍",@"抖动",@"闪白",@"毛刺"];
+
     self.filterBar.itemList = dataSource;
 }
 
@@ -196,7 +197,10 @@ typedef struct {
     if(self.startTimeInterval == 0) {
         self.startTimeInterval = self.displayLink.timestamp;
     }
-    NSTimeInterval currentTime = self.displayLink.timestamp - self.startTimeInterval;
+    CGFloat currentTime = self.displayLink.timestamp - self.startTimeInterval;
+    GLuint timeSlot = glGetUniformLocation(self.program, "time");
+    glUniform1f(timeSlot, currentTime);
+    
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.2, 0.3, 0.1, 1.0);
 
@@ -263,11 +267,58 @@ typedef struct {
             [self setupShaderProgramWithName:@"SplitScreen_6"];
             break;
         case 5:
+            [self setupShaderProgramWithName:@"Gray"];
             break;
+        case 6:
+            [self setupShaderProgramWithName:@"Reverse"];
+            break;
+        case 7:
+            [self setupShaderProgramWithName:@"Circle"];
+            break;
+        case 8:
+            [self setupShaderProgramWithName:@"Mosaic"];
+            break;
+        case 9:
+            [self setupShaderProgramWithName:@"HexagonMosaic"];
+            break;
+        case 10:
+            [self setupShaderProgramWithName:@"Scale"];
+        
+        break;
+        case 11:
+            [self setupShaderProgramWithName:@"SoulOut"];
+        
+        break;
+        case 12:
+            [self setupShaderProgramWithName:@"Shake"];
+        
+        break;
+        case 13:
+            [self setupShaderProgramWithName:@"ShineWhite"];
+        
+        break;
+        case 14:
+            [self setupShaderProgramWithName:@"Glitch"];
+        
+        break;
         default:
             break;
     }
     // 重新开始滤镜动画
     [self startFilterAnimation];
+}
+
+- (void)dealloc {
+    if (self.context == [EAGLContext currentContext]) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    if (_vertexBuffer) {
+        glDeleteBuffers(1, &_vertexBuffer);
+        _vertexBuffer = 0;
+    }
+    if (_vertices) {
+        free(_vertices);
+        _vertices = nil;
+    }
 }
 @end
